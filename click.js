@@ -11,11 +11,28 @@
     // every time the user clicks, greatly increasing performance
     const clickLabel = document.getElementById("clicks");
     const cpsLabel = document.getElementById("clickssec");
+    const clickButton = document.getElementById("clickBtn");
 
-    function onClick() {
-            clicks += 1;
-        clickLabel.innerHTML = clicks;
-    };
+    // By using both the 'click' and the 'ontouchstart' events
+    // we can easily allow for touch support without having
+    // to restructure the code much
+    ['click','ontouchstart'].forEach((eventname) => {
+
+        // Using an eventlistener, we can programmatically add
+        // events without having to edit the html.
+        //
+        // This is generally preferred over onclick="" events
+        // as it is more adaptable and obscures the events 
+        // from the user, making them more secure.
+        //
+        // html-based events also do not work with methods inside their own scope.
+        clickButton.addEventListener(eventname, (event) => {
+            // Increases 'clicks' by 1 
+            clicks++;
+
+            clickLabel.innerHTML = clicks;
+        })
+    });
     
     function clickspsec(){
         if (clicks > clickssec && clicks >= 100){ 
