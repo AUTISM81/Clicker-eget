@@ -30,7 +30,8 @@
         // programmatically added events can be added to any 
         // element, not just buttons.
         //
-        // HTML-based events also do not work with methods inside their own scope.
+        // HTML-based events also do not work with methods inside other scopes.
+        // (scopes are a tad complicated, ask me if you're more interested in them)
         clickButton.addEventListener(eventname, (event) => {
             // Increases 'clicks' by 1 
             clicks++;
