@@ -65,15 +65,13 @@
         const upgradeCost = parseInt(element.getAttribute('cost'));
         const upgradeClicks = parseInt(element.getAttribute('clicks'));
 
-        ['click','ontouchstart'].forEach((eventname) => {
-            element.addEventListener(eventname, (e) => {
-                if(clicks >= upgradeCost) {
-                    clicks -= upgradeCost;
-                    clickssec += upgradeClicks;
+        element.addEventListener('click', (e) => {
+            if(clicks >= upgradeCost) {
+                clicks -= upgradeCost;
+                clickssec += upgradeClicks;
 
-                    cpsLabel.innerHTML = clickssec;
-                }
-            })
+                cpsLabel.innerHTML = clickssec;
+            }
         })
     })
     
