@@ -1,26 +1,31 @@
-var clicks = 0;
-var clickssec = 1;
+var clicks = 1000;
+var clickssec = 0;
+var clickssec100 = 0;
 function onClick() {
-    if (clicks < 10){
         clicks += 1;
-    }else if (clicks >= 10){
-        clicks *= 2;
-    }
     document.getElementById("clicks").innerHTML = clicks;
 };
 
 function clickspsec(){
-    if (clicks >= 10*clickssec){ 
-        clicks = clicks - 10*clickssec;
-        if (clickssec = 1){
-            clickssec = 0;
-        }
-        clickssec += 10;
-        var intervalID = window.setInterval(myCallback, 1000);
-        function myCallback() {
-            clicks += clickssec;
-            document.getElementById("clickssec").innerHTML = clickssec;
-            document.getElementById("clicks").innerHTML = clicks;
-        }
+    if (clicks > clickssec && clicks >= 100){ 
+        clicks = clicks - 100;
+        clickssec = clickssec + 10;
     }
+    document.getElementById("clickssec").innerHTML = clickssec;
 }
+
+function clickspsec100() {
+    if (clicks > clickssec100 && clicks >= 1000){
+        clicks = clicks - 1000;
+        clickssec100 = clickssec100 + 100
+        clickssec = clickssec + 100
+    }
+    document.getElementById("clickssec").innerHTML = clickssec;
+}
+
+var intervalID = window.setInterval(myCallback, 1000);
+function myCallback() {
+    clicks = clicks + clickssec;
+    document.getElementById("clicks").innerHTML = clicks;
+}
+

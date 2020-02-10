@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="Stylesheet" href="main.css">
 </head>
 <body>
-    <button type="button" onClick="onClick()">Click me</button>
-    <button type="button" onclick="clickspsec()">10 clicks/s</button>
+    <div class="buttons">
+        <button class="button" type="button" onClick="onClick()">Click me</button>
+        <p>+1 click</p>
+        <button class="button" type="button"  onclick="clickspsec()">10 clicks/s</button>
+        <p>costs 100 clicks</p>
+        <button class="button" type="button"  onclick="clickspsec100()">100 clicks/s</button>
+        <p>costs 1000 clicks</p>
+    </div>
     <p>Clicks: <a id="clicks">0</a></p>
     <p>Clicks/s: <a id="clickssec">0</a></p>
     <script src="click.js"></script>

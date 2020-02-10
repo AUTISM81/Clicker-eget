@@ -1,0 +1,16 @@
+body {
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    text-align: center;
+    max-width: 100%;
+}
+
+.button {
+    padding: 15%;
+    max-width: 60%;
+    margin: 5%;
+}
+
+.buttons {
+    margin: 10%;
+}
