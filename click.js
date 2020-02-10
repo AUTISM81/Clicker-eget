@@ -69,10 +69,20 @@
         })
     })
     
-    var intervalID = window.setInterval(myCallback, 1000);
-    function myCallback() {
-        clicks = clicks + clickssec;
-        document.getElementById("clicks").innerHTML = clicks;
-    }
+    // How many times per second we should update the clicks
+    const updateSpeed = 1;
+
+    // Instead of creating a function and calling it using
+    // setInterval, we can use an arrow function: '()=>{}'
+    //
+    // Arrow functions do not actually do anything special
+    // they are simply an alias for 'function() {}'
+    setInterval(() => {
+        // Make sure to divide clickssec by the update speed
+        // to make sure it doesnt increase faster with a faster update speed.
+        clicks += clickssec / updateSpeed;
+
+        clickLabel.innerHTML = clicks;
+    }, 1000 / updateSpeed);
 })();
 
