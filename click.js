@@ -12,7 +12,7 @@
     const clickLabel = document.getElementById("clicks");
     const cpsLabel = document.getElementById("clickssec");
     const clickButton = document.getElementById("clickBtn");
-    const upgradeButtons = document.querySelectorAll("upgrade-btn");
+    const upgradeButtons = document.querySelectorAll(".upgrade-btn");
 
     // By using both the 'click' and the 'ontouchstart' events
     // we can easily allow for touch support without having
