@@ -20,19 +20,23 @@
     ['click','ontouchstart'].forEach((eventname) => {
 
         // Using an eventlistener, we can programmatically add
-        // events without having to edit the html.
+        // events without having to edit the HTML.
         //
         // This is generally preferred over onclick="" events
         // as it is more adaptable and obscures the events 
         // from the user, making them more secure.
         //
-        // html-based events also do not work with methods inside their own scope.
+        // An additional advantage over HTML-based events is that
+        // programmatically added events can be added to any 
+        // element, not just buttons.
+        //
+        // HTML-based events also do not work with methods inside their own scope.
         clickButton.addEventListener(eventname, (event) => {
             // Increases 'clicks' by 1 
             clicks++;
 
             clickLabel.innerHTML = clicks;
-        })
+        });
     });
     
 
@@ -59,13 +63,15 @@
         const upgradeCost = parseInt(element.getAttribute('cost'));
         const upgradeClicks = parseInt(element.getAttribute('clicks'));
 
-        element.addEventListener((e) => {
-            if(clicks >= upgradeCost) {
-                clicks -= upgradeCost;
-                clickssec += upgradeClicks;
+        ['click','ontouchstart'].forEach((eventname) => {
+            element.addEventListener(eventname, (e) => {
+                if(clicks >= upgradeCost) {
+                    clicks -= upgradeCost;
+                    clickssec += upgradeClicks;
 
-                cpsLabel.innerHTML = clickssec;
-            }
+                    cpsLabel.innerHTML = clickssec;
+                }
+            })
         })
     })
     
