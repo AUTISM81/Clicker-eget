@@ -5,9 +5,16 @@
     var clicks = 0;
     var clickssec = 0;
     var clickssec100 = 0;
+    
+    // Saving the elements as constant variables
+    // means that we do not have to query the DOM
+    // every time the user clicks, greatly increasing performance
+    const clickLabel = document.getElementById("clicks");
+    const cpsLabel = document.getElementById("clickssec");
+
     function onClick() {
             clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks;
+        clickLabel.innerHTML = clicks;
     };
     
     function clickspsec(){
@@ -15,7 +22,7 @@
             clicks = clicks - 100;
             clickssec = clickssec + 10;
         }
-        document.getElementById("clickssec").innerHTML = clickssec;
+        cpsLabel.innerHTML = clickssec;
     }
     
     function clickspsec100() {
