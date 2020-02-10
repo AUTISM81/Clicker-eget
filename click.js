@@ -51,7 +51,8 @@
     // While this makes the loop hard to manage - for 
     // example, we are no longer able to know the output
     // of the loop unless we keep track of how many times it
-    // has looped and compare to an expected value.
+    // has looped and compare to an expected value, it allows 
+    // for much higher performance and should be used whereever possible
     upgradeButtons.forEach((element) => {
 
         // Get the 'cost' and 'clicks' attributes from the element
