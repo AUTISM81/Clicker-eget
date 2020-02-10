@@ -1,4 +1,4 @@
-var clicks = 1000;
+var clicks = 0;
 var clickssec = 0;
 var clickssec100 = 0;
 function onClick() {
